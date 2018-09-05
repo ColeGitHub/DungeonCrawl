@@ -14,6 +14,8 @@ class Dungeon
                               MONSTER = 'x',
                               PLAYER = 'o';
         vector<vector<char>> map;
+        int rows = 0, columns = 0, monsters = 3, quit = 0;
+        Player p ();
 
         Dungeon()
         {
@@ -32,11 +34,12 @@ class Dungeon
         void init_dungeon(int, int, int);
         void print_dungeon();
         bool check_empty(int, int);
-        bool check_move(int, int);
+        void move(Player);
+        void move(Monster);
 
     private:
 
-        int rows = 0, columns = 0, monsters = 3;
+//        int rows = 0, columns = 0, monsters = 3;
         
 //        void init_dungeon(int, int, int);
 //        void print_dungeon();
@@ -60,6 +63,8 @@ class Character
             position[1] = y;
         };
 
+        int get_x();
+        int get_y();
         void move(int);
 };
 
@@ -78,7 +83,7 @@ class Player : public Character
             position[1] = y;
         };
 
-        int get_move();
+        int get_move(Dungeon);
 };
 
 #endif 

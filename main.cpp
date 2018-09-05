@@ -1,15 +1,17 @@
-//#include "dungeon_crawl.h"
 #include <iostream>
+
+#include "dungeon_crawl.h"
 
 using namespace std;
 
 int main( int argc, char** argv )
 {
-    switch(2)
+    Dungeon d (10, 20, 0);
+
+    while (d.quit == 0) 
     {
-        case (2) : cout << "That worked" << endl;
-                        break;
-        default : cout << "That didn't work" << endl; 
+        d.print_dungeon();
+        d.move(d.p)
     }
 
     return 0;
