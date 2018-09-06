@@ -61,10 +61,6 @@ void Dungeon::move(Player p)
     }
 }
 
-void Dungeon::move(Monster m)
-{
-
-}
 
 int Player::get_move(Dungeon d)
 {

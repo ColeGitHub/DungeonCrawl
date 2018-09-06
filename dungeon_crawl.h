@@ -4,6 +4,7 @@
 #include <iostream>
 #include <vector>
 
+#include "character.h"
 
 using namespace std;
 
@@ -35,7 +36,6 @@ class Dungeon
         void print_dungeon();
         bool check_empty(int, int);
         void move(Player);
-        void move(Monster);
 
     private:
 
@@ -46,44 +46,6 @@ class Dungeon
 
 };
 
-class Character
-{
-    public:
-        int position[2];
 
-        Character()
-        {
-            position[0] = 0;
-            position[1] = 0;
-        };
-
-        Character(int x, int y)
-        {
-            position[0] = x;
-            position[1] = y;
-        };
-
-        int get_x();
-        int get_y();
-        void move(int);
-};
-
-class Player : public Character
-{
-    public:
-        Player()
-        {
-            position[0] = 0;
-            position[1] = 0;
-        };
-
-        Player(int x, int y)
-        {
-            position[0] = x;
-            position[1] = y;
-        };
-
-        int get_move(Dungeon);
-};
 
 #endif 
