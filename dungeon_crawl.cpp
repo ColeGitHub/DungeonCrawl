@@ -10,8 +10,6 @@ constexpr char Dungeon::EMPTY_SPACE, Dungeon::PLAYER, Dungeon::MONSTER;
 void Dungeon::init_dungeon(int rows, int columns, int monsters)
 {
     map.resize(rows, vector<char>(columns, EMPTY_SPACE));
-    map 
-    map[3][0] = PLAYER;
 }
 
 void Dungeon::print_dungeon()
@@ -35,7 +33,7 @@ bool Dungeon::check_empty(int x, int y)
 }
 
    
-void Dungeon::move(Player p) 
+void Dungeon::move(Character c) 
 {
     char move;
 
@@ -46,13 +44,13 @@ void Dungeon::move(Player p)
         
         switch(move)
         {
-            case 'a' : (position[0] - 1) < 0 ? : position[0] -= 1; 
+            case 'a' : (c.position[0] - 1) < 0 ? : c.position[0] -= 1; 
                        return;
-            case 'w' : (position[1] - 1) < 0 ? : position[1] -= 1; 
+            case 'w' : (c.position[1] - 1) < 0 ? : c.position[1] -= 1; 
                        return;
-            case 'd' : (position[0] + 1) == columns ? : position[0] += 1; 
+            case 'd' : (c.position[0] + 1) == columns ? : c.position[0] += 1; 
                        return;
-            case 's' : (position[1] + 1) == rows ? : position[1] += 1; 
+            case 's' : (c.position[1] + 1) == rows ? : c.position[1] += 1; 
                        return;
             case 'e' : quit = 1;
                        return;
@@ -60,28 +58,5 @@ void Dungeon::move(Player p)
         }
     }
 }
-
-
-int Player::get_move(Dungeon d)
-{
-    char move;
-    cout << ">> ";
-    move = getchar();
-    while (1)
-    {
-        switch(move)
-        {
-            case 'a' : (position[0] - 1) < 0 ? : position[0] -= 1; 
-                       break;
-            case 'w' : (position[1] - 1) < 0 ? : position[1] -= 1; 
-                       break;
-            case 'd' : (position[0] + 1) == d.columns ? : position[0] += 1; 
-                       break;
-            case 's' : (position[1] + 1) == d.rows ? : position[1] += 1; 
-                       break;
-            default : cout << "Please enter direction" << endl;
-        }
-    }
-}    
 
 
