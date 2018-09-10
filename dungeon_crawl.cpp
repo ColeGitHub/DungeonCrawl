@@ -36,21 +36,23 @@ bool Dungeon::check_empty(int x, int y)
 void Dungeon::move(Character c) 
 {
     char move;
+    int x = c.get_x();
+    int y = c.get_y();
 
     while (1)
     {
         cout << ">> ";
-        move = getchar();
+        cin >> move;
         
         switch(move)
         {
-            case 'a' : (c.position[0] - 1) < 0 ? : c.position[0] -= 1; 
+            case 'a' : (x - 1) < 0 ? : x -= 1; 
                        return;
-            case 'w' : (c.position[1] - 1) < 0 ? : c.position[1] -= 1; 
+            case 'w' : (y - 1) < 0 ? : y -= 1; 
                        return;
-            case 'd' : (c.position[0] + 1) == columns ? : c.position[0] += 1; 
+            case 'd' : (x + 1) == columns ? : x += 1; 
                        return;
-            case 's' : (c.position[1] + 1) == rows ? : c.position[1] += 1; 
+            case 's' : (y + 1) == rows ? : y += 1; 
                        return;
             case 'e' : quit = 1;
                        return;

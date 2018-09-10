@@ -16,7 +16,7 @@ class Dungeon
                               PLAYER = 'o';
         vector<vector<char>> map;
         int rows = 0, columns = 0, monsters = 3, quit = 0;
-        Character player ();
+        Character player;
 
         Dungeon()
         {

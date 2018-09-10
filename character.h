@@ -21,7 +21,6 @@ class Character
 
         int get_x();
         int get_y();
-        void move(int);
 };
 
 
