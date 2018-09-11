@@ -10,7 +10,6 @@ constexpr char Dungeon::EMPTY_SPACE, Dungeon::PLAYER, Dungeon::MONSTER;
 void Dungeon::init_dungeon(int rows, int columns, int monsters)
 {
     map.resize(rows, vector<char>(columns, EMPTY_SPACE));
-
 }
 
 void Dungeon::print_dungeon()
@@ -58,6 +57,7 @@ void Dungeon::move(Character &c)
         switch(move)
         {
             case 'a' : (x - 1) < 0 ? : x -= 1; 
+<<<<<<< HEAD
                        c.set_x(x);
                        return;
             case 'w' : (y - 1) < 0 ? : y -= 1; 
