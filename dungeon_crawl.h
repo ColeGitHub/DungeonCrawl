@@ -14,9 +14,10 @@ class Dungeon
         static constexpr char EMPTY_SPACE = '+',
                               MONSTER = 'x',
                               PLAYER = 'o';
-        vector<vector<char>> map;
         int rows = 0, columns = 0, monsters = 3, quit = 0;
-        Player p ();
+
+        vector<vector<char>> map;
+        Character player; 
 
         Dungeon()
         {
@@ -34,8 +35,9 @@ class Dungeon
 
         void init_dungeon(int, int, int);
         void print_dungeon();
+        void update_dungeon();
         bool check_empty(int, int);
-        void move(Player);
+        void move(Character&);
 
     private:
 

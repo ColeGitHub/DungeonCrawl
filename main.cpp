@@ -11,7 +11,7 @@ int main( int argc, char** argv )
     while (d.quit == 0) 
     {
         d.print_dungeon();
-        d.move(d.p)
+        d.move((d.player));
     }
 
     return 0;

@@ -19,9 +19,10 @@ class Character
             position[1] = y;
         };
 
-        int get_x();
-        int get_y();
-        void move(int);
+        int get_x() { return this->position[0]; }
+        int get_y() { return this->position[1]; }
+        void set_x( int x ) { this->position[0] = x; } 
+        void set_y( int y ) { this->position[1] = y; }
 };
 
 

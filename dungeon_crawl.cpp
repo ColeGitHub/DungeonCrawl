@@ -10,12 +10,13 @@ constexpr char Dungeon::EMPTY_SPACE, Dungeon::PLAYER, Dungeon::MONSTER;
 void Dungeon::init_dungeon(int rows, int columns, int monsters)
 {
     map.resize(rows, vector<char>(columns, EMPTY_SPACE));
-    map 
-    map[3][0] = PLAYER;
+
 }
 
 void Dungeon::print_dungeon()
 {
+    Dungeon::update_dungeon();
+
     for ( int i = 0; i < rows; i++ ) 
     {
         for ( int j = 0; j < columns; j++) 
@@ -27,6 +28,14 @@ void Dungeon::print_dungeon()
     cout << endl;
 }
 
+void Dungeon::update_dungeon()
+{
+    // Update to Character vector, iterate through and place 
+    // characters on map
+    
+    map[Dungeon::player.get_y()][Dungeon::player.get_x()] = PLAYER;
+}
+
 bool Dungeon::check_empty(int x, int y)
 {
     if (map[y][x] == EMPTY_SPACE)
@@ -35,24 +44,30 @@ bool Dungeon::check_empty(int x, int y)
 }
 
    
-void Dungeon::move(Player p) 
+void Dungeon::move(Character &c)
 {
     char move;
+    int x = c.get_x();
+    int y = c.get_y();
 
     while (1)
     {
         cout << ">> ";
-        move = getchar();
+        cin >> move;
         
         switch(move)
         {
-            case 'a' : (position[0] - 1) < 0 ? : position[0] -= 1; 
+            case 'a' : (x - 1) < 0 ? : x -= 1; 
+                       c.set_x(x);
                        return;
-            case 'w' : (position[1] - 1) < 0 ? : position[1] -= 1; 
+            case 'w' : (y - 1) < 0 ? : y -= 1; 
+                       c.set_y(y);
                        return;
-            case 'd' : (position[0] + 1) == columns ? : position[0] += 1; 
+            case 'd' : (x + 1) == columns ? : x += 1; 
+                       c.set_x(x);
                        return;
-            case 's' : (position[1] + 1) == rows ? : position[1] += 1; 
+            case 's' : (y + 1) == rows ? : y += 1; 
+                       c.set_y(y);
                        return;
             case 'e' : quit = 1;
                        return;
@@ -60,28 +75,5 @@ void Dungeon::move(Player p)
         }
     }
 }
-
-
-int Player::get_move(Dungeon d)
-{
-    char move;
-    cout << ">> ";
-    move = getchar();
-    while (1)
-    {
-        switch(move)
-        {
-            case 'a' : (position[0] - 1) < 0 ? : position[0] -= 1; 
-                       break;
-            case 'w' : (position[1] - 1) < 0 ? : position[1] -= 1; 
-                       break;
-            case 'd' : (position[0] + 1) == d.columns ? : position[0] += 1; 
-                       break;
-            case 's' : (position[1] + 1) == d.rows ? : position[1] += 1; 
-                       break;
-            default : cout << "Please enter direction" << endl;
-        }
-    }
-}    
 
 

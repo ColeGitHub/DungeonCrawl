@@ -1,7 +1,7 @@
 CC=g++
 CFLAGS=-I.
 DEPS = dungeon_crawl.h character.h
-OBJ = main.o dungeon_crawl.o character.o
+OBJ = main.o dungeon_crawl.o 
 
 %.o: %.c $(DEPS)
 	$(CC) -c -o $@ $< $(CFLAGS)
