@@ -30,8 +30,8 @@ void Dungeon::print_dungeon()
 void Dungeon::update_dungeon()
 {
     // Update to Character vector, iterate through and place 
-    // characters on map
-    
+    // characters on map    
+    map[Dungeon::player.get_previous_y()][Dungeon::player.get_previous_x()] = EMPTY_SPACE;
     map[Dungeon::player.get_y()][Dungeon::player.get_x()] = PLAYER;
 }
 
@@ -49,6 +49,9 @@ void Dungeon::move(Character &c)
     int x = c.get_x();
     int y = c.get_y();
 
+    c.set_previous_x();
+    c.set_previous_y();
+
     while (1)
     {
         cout << ">> ";
@@ -57,7 +60,6 @@ void Dungeon::move(Character &c)
         switch(move)
         {
             case 'a' : (x - 1) < 0 ? : x -= 1; 
-<<<<<<< HEAD
                        c.set_x(x);
                        return;
             case 'w' : (y - 1) < 0 ? : y -= 1; 
