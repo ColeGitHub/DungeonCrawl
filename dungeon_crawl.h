@@ -14,10 +14,10 @@ class Dungeon
         static constexpr char EMPTY_SPACE = '+',
                               MONSTER = 'x',
                               PLAYER = 'o';
-        int rows = 0, columns = 0, monsters = 3, quit = 0;
+        int rows = 0, columns = 0, monsters = 1, quit = 0;
 
         vector<vector<char>> map;
-        Character player; 
+        vector<Character> players;
 
         Dungeon()
         {
@@ -38,6 +38,8 @@ class Dungeon
         void update_dungeon();
         bool check_empty(int, int);
         void move(Character&);
+        void move(Monster&);
+        void move_players();
 
     private:
 

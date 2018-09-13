@@ -34,5 +34,16 @@ class Character
         void set_previous_y() { this->position[3] = this->position[1]; }
 };
 
+class Monster : public Character
+{
+    public :
+        Monster( int x, int y )
+        {
+            position[0] = x;
+            position[1] = y;
+            position[2] = x;
+            position[3] = y;
+        };
+};
 
 #endif
